@@ -2,7 +2,7 @@
 const AREA_CONFIG = {
     'capital_haremcia': {
         title: 'Voluptua',
-        flag: 'images/map/capital/placeholder.png',
+        flag: 'images/map/capital/haremcia.png',
         link: ''
     },
     'capital_holy_reich': {
@@ -12,7 +12,7 @@ const AREA_CONFIG = {
     },
     'capital_GED': {
         title: 'Capital City',
-        flag: 'images/map/capital/placeholder.png',
+        flag: 'images/map/capital/GED.png',
         link: ''
     },
     'capital_GWE': {
@@ -22,7 +22,7 @@ const AREA_CONFIG = {
     },
     'capital_URSS': {
         title: 'Frostobyl',
-        flag: 'images/map/capital/placeholder.png',
+        flag: 'images/map/capital/URSS.png',
         link: ''
     },
     'capital_SPO': {
@@ -32,7 +32,7 @@ const AREA_CONFIG = {
     },
     'capital_complex': {
         title: 'Main Hub',
-        flag: 'images/map/capital/placeholder.png',
+        flag: 'images/map/capital/complex.png',
         link: ''
     },
     'capital_celeste': {
