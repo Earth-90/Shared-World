@@ -59,12 +59,12 @@ const AREA_CONFIG = {
     'complex': {
         title: 'État Indépendant du Complex',
         flag: 'images/map/flag/flag_Complex.png',
-        link: 'complex.html'
+        link: 'https://earth-90.github.io/Haremcia/complex.html'
     },
     'haremcia': {
         title: 'Autocratie d\'Haremcia',
         flag: 'images/map/flag/flag_H.png',
-        link: 'index.html'
+        link: 'https://earth-90.github.io/Haremcia/'
     },
     'holy_reich': {
         title: 'Empire du Holy Reich',
@@ -74,7 +74,7 @@ const AREA_CONFIG = {
     'GED': {
         title: 'Great East Domain',
         flag: 'images/map/flag/flag_GED.png',
-        link: 'ged.html'
+        link: 'https://earth-90.github.io/Haremcia/ged.html'
     },
     'GWE': {
         title: 'Great West Empire',
@@ -89,7 +89,7 @@ const AREA_CONFIG = {
     'URSS': {
         title: 'United Radical South States',
         flag: 'images/map/flag/flag_URSS.png',
-        link: 'urss.html'
+        link: 'https://earth-90.github.io/Haremcia/urss.html'
     },
     'SPO': {
         title: 'Sultanat de la Poussière d’Or',
