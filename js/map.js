@@ -7,7 +7,7 @@ const AREA_CONFIG = {
     },
     'capital_holy_reich': {
         title: 'Auréline l\'immaculée',
-        flag: 'images/map/capital/placeholder.png',
+        flag: 'images/map/capital/holy_reich.png',
         link: ''
     },
     'capital_GED': {
@@ -17,7 +17,7 @@ const AREA_CONFIG = {
     },
     'capital_GWE': {
         title: 'Sainte Bastille',
-        flag: 'images/map/capital/placeholder.png',
+        flag: 'images/map/capital/GWE.png',
         link: ''
     },
     'capital_URSS': {
@@ -27,7 +27,7 @@ const AREA_CONFIG = {
     },
     'capital_SPO': {
         title: 'Utopia',
-        flag: 'https://superwaifu.github.io/Holy-Reich/paysages/NewArk%202.png',
+        flag: 'images/map/capital/SPO.png',
         link: ''
     },
     'capital_complex': {
@@ -37,7 +37,7 @@ const AREA_CONFIG = {
     },
     'capital_celeste': {
         title: 'Célestia',
-        flag: 'images/map/capital/placeholder.png',
+        flag: 'images/map/capital/celeste.png',
         link: ''
     },
 
