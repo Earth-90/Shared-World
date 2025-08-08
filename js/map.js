@@ -277,53 +277,75 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Variables pour gérer le double-clic
+    let clickTimeout = null;
+    const DOUBLE_CLICK_DELAY = 300; // délai en millisecondes
+
     // Gestion du clic sur une zone
     function handleAreaClick(e, element, areaId) {
         e.preventDefault();
         const config = AREA_CONFIG[areaId];
 
-        // Fermer les accords si ouverts
-        if (elements.accordsModal.style.display === 'flex') {
-            elements.accordsModal.classList.remove('open');
-            elements.openAccordsButton.classList.remove('open');
-            setTimeout(() => {
-                elements.accordsModal.style.display = 'none';
-            }, 400);
+        // Gestion du double-clic
+        if (clickTimeout !== null) {
+            // Double-clic détecté
+            clearTimeout(clickTimeout);
+            clickTimeout = null;
+
+            // Ouvrir le lien si disponible et si ce n'est pas une capitale
+            if (config.link && !areaId.startsWith('capital_')) {
+                window.open(config.link, '_blank');
+                return;
+            }
         }
 
-        // Toggle de fermeture
-        if (lastOpenedId === areaId && elements.modal.style.display === 'flex') {
-            ModalUtils.closeAllModals(elements.modal, elements.accordsModal);
-            lastOpenedId = null;
-            return;
-        }
+        clickTimeout = setTimeout(() => {
+            // C'est un simple clic, exécuter le comportement normal
+            clickTimeout = null;
 
-        // Positionnement
-        ModalUtils.setModalPosition(elements.modal, areaId);
-        elements.modal.classList.remove('open');
+            // Fermer les accords si ouverts
+            if (elements.accordsModal.style.display === 'flex') {
+                elements.accordsModal.classList.remove('open');
+                elements.openAccordsButton.classList.remove('open');
+                setTimeout(() => {
+                    elements.accordsModal.style.display = 'none';
+                }, 400);
+            }
 
-        // Contenu
-        elements.modalFlag.src = config.flag;
-        elements.modalTitle.textContent = config.title;
-        elements.modalDetails.innerHTML = ModalUtils.prepareModalContent(config, areaId);
+            // Toggle de fermeture
+            if (lastOpenedId === areaId && elements.modal.style.display === 'flex') {
+                ModalUtils.closeAllModals(elements.modal, elements.accordsModal);
+                lastOpenedId = null;
+                return;
+            }
 
-        // Configuration du lien
-        elements.modalLink.style.display = areaId.startsWith('capital_') ? 'none' : 'block';
-        elements.modalLink.onclick = () => {
-            window.open(config.link, '_blank');
-        };
+            // Positionnement
+            ModalUtils.setModalPosition(elements.modal, areaId);
+            elements.modal.classList.remove('open');
+
+            // Contenu
+            elements.modalFlag.src = config.flag;
+            elements.modalTitle.textContent = config.title;
+            elements.modalDetails.innerHTML = ModalUtils.prepareModalContent(config, areaId);
+
+            // Configuration du lien
+            elements.modalLink.style.display = areaId.startsWith('capital_') ? 'none' : 'block';
+            elements.modalLink.onclick = () => {
+                window.open(config.link, '_blank');
+            };
 
 
-        // Gestion des accords
-        elements.openAccordsButton.style.display =
-            ALL_ACCORDS.some(accord => accord.parties.includes(areaId))
-                ? 'flex'
-                : 'none';
+            // Gestion des accords
+            elements.openAccordsButton.style.display =
+                ALL_ACCORDS.some(accord => accord.parties.includes(areaId))
+                    ? 'flex'
+                    : 'none';
 
-        // Affichage
-        elements.modal.style.display = 'flex';
-        setTimeout(() => elements.modal.classList.add('open'), 10);
-        lastOpenedId = areaId;
+            // Affichage
+            elements.modal.style.display = 'flex';
+            setTimeout(() => elements.modal.classList.add('open'), 10);
+            lastOpenedId = areaId;
+        }, DOUBLE_CLICK_DELAY);
     }
 
     // Affichage des accords
