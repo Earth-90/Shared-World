@@ -100,6 +100,12 @@ const AREA_CONFIG = {
 
 const ALL_ACCORDS = [
     {
+        name: "Pacte d'Airain",
+        date: "20/04/69",
+        parties: ["haremcia", "holy_reich", "GED", "GWE"],
+        image: "images/map/accord/placeholder.png"
+    },
+    {
         name: "The Water Pipeline Act",
         date: "05/10/94",
         parties: ["haremcia", "GED"],
